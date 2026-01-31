@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_sort.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
