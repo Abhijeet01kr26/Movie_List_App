@@ -25,35 +25,45 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MA-FJ-iHS">
-                                <rect key="frame" x="16" y="261" width="60" height="45"/>
+                                <rect key="frame" x="5" y="261" width="75" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="AXw-vc-ePe"/>
+                                    <constraint firstAttribute="width" constant="75" id="AXw-vc-ePe"/>
                                     <constraint firstAttribute="height" constant="45" id="keh-R8-Dgi"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Sort">
+                                <state key="normal" title="Name" image="ic_up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="sortButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzr-07-maa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exZ-pD-5q1">
-                                <rect key="frame" x="166.66666666666666" y="266.66666666666669" width="60" height="34"/>
+                                <rect key="frame" x="159" y="261" width="75" height="45"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Filter">
+                                <state key="normal" title="Year" image="ic_up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="filterButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ca3-fQ-dTr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSS-SO-ptU">
-                                <rect key="frame" x="317" y="266.66666666666669" width="60" height="34"/>
+                                <rect key="frame" x="313" y="261" width="75" height="45"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="reload"/>
+                                <state key="normal" title="Reset" image="ic_reset"/>
+                                <connections>
+                                    <action selector="reloadButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UAc-GS-O6O"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yeM-1c-zoZ">
                                 <rect key="frame" x="5" y="314" width="383" height="465"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="202-MP-r1W">
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="202-MP-r1W">
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
                             </tableView>
                         </subviews>
@@ -61,17 +71,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yeM-1c-zoZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="A9d-v5-w29"/>
-                            <constraint firstItem="0MA-FJ-iHS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Erj-rM-CmT"/>
+                            <constraint firstItem="0MA-FJ-iHS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Erj-rM-CmT"/>
+                            <constraint firstItem="VSS-SO-ptU" firstAttribute="height" secondItem="exZ-pD-5q1" secondAttribute="height" id="FJW-Uv-ukJ"/>
                             <constraint firstItem="exZ-pD-5q1" firstAttribute="centerY" secondItem="0MA-FJ-iHS" secondAttribute="centerY" id="KE3-bc-udl"/>
                             <constraint firstItem="QwI-aL-JwH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Mba-iA-njO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yeM-1c-zoZ" secondAttribute="bottom" constant="5" id="NrV-3Q-L1C"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VSS-SO-ptU" secondAttribute="trailing" constant="16" id="PBb-L2-ZTJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VSS-SO-ptU" secondAttribute="trailing" constant="5" id="PBb-L2-ZTJ"/>
                             <constraint firstItem="QwI-aL-JwH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="S2Q-Kv-tFf"/>
                             <constraint firstItem="yeM-1c-zoZ" firstAttribute="top" secondItem="0MA-FJ-iHS" secondAttribute="bottom" constant="8" id="Uhc-7d-utG"/>
                             <constraint firstItem="QwI-aL-JwH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VtM-TU-dKi"/>
                             <constraint firstItem="VSS-SO-ptU" firstAttribute="width" secondItem="exZ-pD-5q1" secondAttribute="width" id="eI4-c6-OD1"/>
                             <constraint firstItem="0MA-FJ-iHS" firstAttribute="top" secondItem="QwI-aL-JwH" secondAttribute="bottom" constant="10" id="fYa-ZS-wII"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yeM-1c-zoZ" secondAttribute="trailing" constant="5" id="ivW-at-JQ5"/>
+                            <constraint firstItem="exZ-pD-5q1" firstAttribute="height" secondItem="0MA-FJ-iHS" secondAttribute="height" id="jJS-LW-N27"/>
                             <constraint firstItem="exZ-pD-5q1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oLi-lq-Wcz"/>
                             <constraint firstItem="exZ-pD-5q1" firstAttribute="width" secondItem="0MA-FJ-iHS" secondAttribute="width" id="pTS-aq-bCo"/>
                             <constraint firstItem="VSS-SO-ptU" firstAttribute="centerY" secondItem="exZ-pD-5q1" secondAttribute="centerY" id="rot-BD-ypg"/>
@@ -112,6 +124,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_reset" width="20" height="20"/>
+        <image name="ic_up" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     private var currentPage = 1
     private var totalPages = 1
     private var isLoading = false
+
+    private var currentSortType: SortType?
+    private var isAscending = true
     // MARK: - Public Method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +78,18 @@ class ViewController: UIViewController {
         )
 
         setupActivityIndicator()
+        self.sortButton.titleLabel?.font = UIFont(name: Fonts.satoshiMedium.fontName, size: 13)
+        self.reloadButton.titleLabel?.font = UIFont(name: Fonts.satoshiMedium.fontName, size: 13)
+        self.filterButton.titleLabel?.font = UIFont(name: Fonts.satoshiMedium.fontName, size: 13)
+        self.sortButton.layer.cornerRadius = 8
+        self.filterButton.layer.cornerRadius = 8
+        self.reloadButton.layer.cornerRadius = 8
+        self.sortButton.layer.borderWidth = 1
+        self.reloadButton.layer.borderWidth = 1
+        self.filterButton.layer.borderWidth = 1
+        self.sortButton.layer.borderColor = UIColor.lightGray.cgColor
+        self.reloadButton.layer.borderColor = UIColor.lightGray.cgColor
+        self.filterButton.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     private func setupActivityIndicator() {
@@ -126,6 +141,41 @@ class ViewController: UIViewController {
             }
         }
     }
+    private func toggleSort(by type: SortType) {
+        if currentSortType == type {
+            // Same sort tapped again → toggle order
+            isAscending.toggle()
+        } else {
+            // New sort → reset to ascending
+            currentSortType = type
+            isAscending = true
+        }
+        
+        moviesList.sort(by: type == .name ? .name : .year,
+                        ascending: isAscending)
+
+        tableView.reloadData()
+    }
+    
+    @IBAction func sortButtonAction(_ sender: Any) {
+        toggleSort(by: .name)
+        self.sortButton.setImage(isAscending ? UIImage(named: "ic_up") : UIImage(named: "ic_down"), for: .normal)
+    }
+    
+    @IBAction func filterButtonAction(_ sender: Any) {
+        toggleSort(by: .year)
+        self.filterButton.setImage(isAscending ? UIImage(named: "ic_up") : UIImage(named: "ic_down"), for: .normal)
+    }
+    @IBAction func reloadButtonAction(_ sender: Any) {
+        moviesList.clearSort()
+        
+        currentSortType = nil
+        isAscending = true
+        self.filterButton.setImage(isAscending ? UIImage(named: "ic_up") : UIImage(named: "ic_down"), for: .normal)
+        self.sortButton.setImage(isAscending ? UIImage(named: "ic_up") : UIImage(named: "ic_down"), for: .normal)
+        tableView.reloadData()
+    }
+    
     
 }
 extension ViewController: UITableViewDataSource, UITableViewDelegate {

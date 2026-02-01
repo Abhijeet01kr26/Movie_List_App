@@ -1,5 +1,8 @@
 import Foundation
-
+enum SortType {
+    case name
+    case year
+}
 class MoviesListClass {
 
     private(set) var allMovies: [MovieList] = []
@@ -18,11 +21,6 @@ class MoviesListClass {
                 $0.title.lowercased().contains(text.lowercased())
             }
         }
-    }
-
-    enum SortType {
-        case name
-        case year
     }
 
     func sort(by type: SortType, ascending: Bool) {
